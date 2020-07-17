@@ -1,1 +1,21 @@
+# core
+fastapi==0.59.0 # https://fastapi.tiangolo.com/
+pydantic[email]==1.6 # https://pydantic-docs.helpmanual.io/
+starlette==0.13.4 # https://www.starlette.io/
+uvicorn==0.11.5 # http://www.uvicorn.org/
+passlib[bcrypt]==1.7.2 # https://pypi.org/project/passlib/
+# token require
+python-multipart==0.0.5 # https://github.com/andrew-d/python-multipart
+python-jose[cryptography]==3.1.0 # https://github.com/mpdavis/python-jose
+
+# database
+tortoise-orm==0.16.13 # https://pypi.org/project/tortoise-orm/
+aiomysql==0.0.20 # https://pypi.org/project/aiomysql/
+redis==3.5.3 # https://pypi.org/project/redis3/
+
+# celery
+celery[redis]==4.4.6 # https://docs.celeryproject.org/
+flower==0.9.5 # https://flower.readthedocs.io/en/latest/
+
+# test
 pytest==5.4.3 # https://docs.pytest.org/en/stable/
