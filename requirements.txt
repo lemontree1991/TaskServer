@@ -1,0 +1,1 @@
+pytest==5.4.3 # https://docs.pytest.org/en/stable/
