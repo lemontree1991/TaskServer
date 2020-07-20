@@ -25,6 +25,11 @@ class Settings(BaseSettings):
     ACCESS_TOKEN_EXPIRE_MINUTES: int = 60 * 24 * 8
     BACKEND_CORS_ORIGINS = ['*']
 
+    # Celery 配置
+    TIMEZONE: str = 'Asia/Shanghai'
+    BROKER_URL: str = 'redis://localhost:6379/0'
+    RESULT_BACKEND: str = 'redis://localhost:6379/1'
+
     class Config:
         env_file = '.env'
         env_file_encoding = 'utf-8'
@@ -32,6 +37,4 @@ class Settings(BaseSettings):
         # case_sensitive = False  # 区分大小写 ，默认False
 
 
-if __name__ == '__main__':
-    # print(Settings(admin_email='ssssss').dict())
-    print(Settings(_env_file='../local.env').dict())
+settings = Settings()
