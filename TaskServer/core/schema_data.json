@@ -1,0 +1,379 @@
+{
+  "sys_config": {
+    "simulate": {
+      "start": 0,
+      "terminal": 1,
+      "interval": 0.01
+    }
+  },
+  "modules": [
+    {
+      "id": "inf",
+      "category": "InflowModule",
+      "params": {
+        "inflow": {
+          "flow": {
+            "value": 1000,
+            "is_save": true,
+            "is_sequence": false,
+            "sequence": [
+              [
+                2000,
+                2000,
+                3000,
+                4000,
+                5000,
+                6000
+              ],
+              [
+                1001,
+                2002,
+                3003,
+                4004,
+                5005,
+                6006
+              ]
+            ]
+          },
+          "so": {
+            "value": 0
+          },
+          "sf": {
+            "value": 0
+          },
+          "sa": {
+            "value": 0
+          },
+          "snh": {
+            "value": 25
+          },
+          "sno": {
+            "value": 0
+          },
+          "spo": {
+            "value": 10
+          },
+          "si": {
+            "value": 30
+          },
+          "salk": {
+            "value": 7
+          },
+          "snn": {
+            "value": 0
+          },
+          "xi": {
+            "value": 130
+          },
+          "xs": {
+            "value": 100
+          },
+          "xh": {
+            "value": 0
+          },
+          "xpao": {
+            "value": 0
+          },
+          "xpp": {
+            "value": 0
+          },
+          "xpha": {
+            "value": 0
+          },
+          "xaut": {
+            "value": 0
+          },
+          "xmeoh": {
+            "value": 0
+          },
+          "xmep": {
+            "value": 0
+          },
+          "xii": {
+            "value": 30
+          }
+        }
+      }
+    },
+    {
+      "category": "CSTRModule",
+      "id": "anaerobic_1",
+      "params": {}
+    },
+    {
+      "category": "CSTRModule",
+      "id": "anaerobic_2",
+      "params": {}
+    },
+    {
+      "category": "CSTRModule",
+      "id": "anaerobic_3",
+      "params": {}
+    },
+    {
+      "category": "CSTRModule",
+      "id": "first_anoxia_1",
+      "params": {}
+    },
+    {
+      "category": "CSTRModule",
+      "id": "first_anoxia_2",
+      "params": {}
+    },
+    {
+      "category": "CSTRModule",
+      "id": "first_anoxia_3",
+      "params": {}
+    },
+    {
+      "category": "CSTRModule",
+      "id": "first_aerobic_1",
+      "params": {}
+    },
+    {
+      "category": "CSTRModule",
+      "id": "first_aerobic_2",
+      "params": {}
+    },
+    {
+      "category": "CSTRModule",
+      "id": "first_aerobic_3",
+      "params": {}
+    },
+    {
+      "category": "CSTRModule",
+      "id": "first_aerobic_4",
+      "params": {}
+    },
+    {
+      "category": "CSTRModule",
+      "id": "first_aerobic_5",
+      "params": {}
+    },
+    {
+      "category": "CSTRModule",
+      "id": "first_aerobic_6",
+      "params": {}
+    },
+    {
+      "category": "CSTRModule",
+      "id": "second_anoxia_1",
+      "params": {}
+    },
+    {
+      "category": "CSTRModule",
+      "id": "second_anoxia_2",
+      "params": {}
+    },
+    {
+      "category": "CSTRModule",
+      "id": "second_anoxia_3",
+      "params": {}
+    },
+    {
+      "category": "CSTRModule",
+      "id": "second_aerobic_1",
+      "params": {}
+    },
+    {
+      "category": "CSTRModule",
+      "id": "second_aerobic_2",
+      "params": {}
+    },
+    {
+      "category": "CSTRModule",
+      "id": "second_aerobic_3",
+      "params": {}
+    },
+    {
+      "category": "CSTRModule",
+      "id": "second_aerobic_4",
+      "params": {}
+    },
+    {
+      "category": "CSTRModule",
+      "id": "second_aerobic_5",
+      "params": {}
+    },
+    {
+      "category": "CSTRModule",
+      "id": "second_aerobic_6",
+      "params": {}
+    },
+    {
+      "category": "SeclarModule",
+      "id": "seclar",
+      "params": {
+        "initial": {},
+        "physical": {},
+        "operation": {
+          "ras_ratio": {
+            "value": 0
+          }
+        },
+        "takacs": {},
+        "stoichi": {}
+      }
+    }
+  ],
+  "edges": [
+    {
+      "source_module": "inf",
+      "source_port": "inf_1",
+      "target_module": "anaerobic_1",
+      "target_port": "anaerobic_1_2"
+    },
+    {
+      "source_module": "anaerobic_1",
+      "source_port": "anaerobic_1_1",
+      "target_module": "anaerobic_2",
+      "target_port": "anaerobic_2_2"
+    },
+    {
+      "source_module": "anaerobic_2",
+      "source_port": "anaerobic_2_1",
+      "target_module": "anaerobic_3",
+      "target_port": "anaerobic_3_2"
+    },
+    {
+      "source_module": "anaerobic_3",
+      "source_port": "anaerobic_3_1",
+      "target_module": "first_anoxia_1",
+      "target_port": "first_anoxia_1_2"
+    },
+    {
+      "source_module": "first_anoxia_1",
+      "source_port": "first_anoxia_1_1",
+      "target_module": "first_anoxia_2",
+      "target_port": "first_anoxia_2_2"
+    },
+    {
+      "source_module": "first_anoxia_2",
+      "source_port": "first_anoxia_2_1",
+      "target_module": "first_anoxia_3",
+      "target_port": "first_anoxia_3_2"
+    },
+    {
+      "source_module": "first_anoxia_3",
+      "source_port": "first_anoxia_3_1",
+      "target_module": "first_aerobic_1",
+      "target_port": "first_aerobic_1_2"
+    },
+    {
+      "source_module": "first_aerobic_1",
+      "source_port": "first_aerobic_1_1",
+      "target_module": "first_aerobic_2",
+      "target_port": "first_aerobic_2_2"
+    },
+    {
+      "source_module": "first_aerobic_2",
+      "source_port": "first_aerobic_2_1",
+      "target_module": "first_aerobic_3",
+      "target_port": "first_aerobic_3_2"
+    },
+    {
+      "source_module": "first_aerobic_3",
+      "source_port": "first_aerobic_3_1",
+      "target_module": "first_aerobic_4",
+      "target_port": "first_aerobic_4_2"
+    },
+    {
+      "source_module": "first_aerobic_4",
+      "source_port": "first_aerobic_4_1",
+      "target_module": "first_aerobic_5",
+      "target_port": "first_aerobic_5_2"
+    },
+    {
+      "source_module": "first_aerobic_5",
+      "source_port": "first_aerobic_5_1",
+      "target_module": "first_aerobic_6",
+      "target_port": "first_aerobic_6_2"
+    },
+    {
+      "source_module": "first_aerobic_6",
+      "source_port": "first_aerobic_6_1",
+      "target_module": "second_anoxia_1",
+      "target_port": "second_anoxia_1_2"
+    },
+    {
+      "source_module": "second_anoxia_1",
+      "source_port": "second_anoxia_1_1",
+      "target_module": "second_anoxia_2",
+      "target_port": "second_anoxia_2_2"
+    },
+    {
+      "source_module": "second_anoxia_2",
+      "source_port": "second_anoxia_2_1",
+      "target_module": "second_anoxia_3",
+      "target_port": "second_anoxia_3_2"
+    },
+    {
+      "source_module": "second_anoxia_3",
+      "source_port": "second_anoxia_3_1",
+      "target_module": "second_aerobic_1",
+      "target_port": "second_aerobic_1_2"
+    },
+    {
+      "source_module": "second_aerobic_1",
+      "source_port": "second_aerobic_1_1",
+      "target_module": "second_aerobic_2",
+      "target_port": "second_aerobic_2_2"
+    },
+    {
+      "source_module": "second_aerobic_2",
+      "source_port": "second_aerobic_2_1",
+      "target_module": "second_aerobic_3",
+      "target_port": "second_aerobic_3_2"
+    },
+    {
+      "source_module": "second_aerobic_3",
+      "source_port": "second_aerobic_3_1",
+      "target_module": "second_aerobic_4",
+      "target_port": "second_aerobic_4_2"
+    },
+    {
+      "source_module": "second_aerobic_4",
+      "source_port": "second_aerobic_4_1",
+      "target_module": "second_aerobic_5",
+      "target_port": "second_aerobic_5_2"
+    },
+    {
+      "source_module": "second_aerobic_5",
+      "source_port": "second_aerobic_5_1",
+      "target_module": "second_aerobic_6",
+      "target_port": "second_aerobic_6_2"
+    },
+    {
+      "source_module": "second_aerobic_6",
+      "source_port": "second_aerobic_6_1",
+      "target_module": "seclar",
+      "target_port": "seclar_2"
+    }
+  ],
+  "sorted": [
+    "inf",
+    "anaerobic_1",
+    "anaerobic_2",
+    "anaerobic_3",
+    "first_anoxia_1",
+    "first_anoxia_2",
+    "first_anoxia_3",
+    "first_aerobic_1",
+    "first_aerobic_2",
+    "first_aerobic_3",
+    "first_aerobic_4",
+    "first_aerobic_5",
+    "first_aerobic_6",
+    "second_anoxia_1",
+    "second_anoxia_2",
+    "second_anoxia_3",
+    "second_aerobic_1",
+    "second_aerobic_2",
+    "second_aerobic_3",
+    "second_aerobic_4",
+    "second_aerobic_5",
+    "second_aerobic_6",
+    "seclar"
+  ],
+  "result_setting": []
+}

@@ -58,6 +58,7 @@ def test_task(self, sleep_time: int = 1):
 
     for i in range(1, 101):
         data['data'].append(i)
+        data['progress'] = i
         self.update_state(state=states.PROGRESS, meta=data)
         logger.info(f'{task_id} progress is {i}')
         time.sleep(sleep_time)

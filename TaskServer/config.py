@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+import os
 import secrets
 
 from pydantic import BaseSettings
@@ -29,6 +30,10 @@ class Settings(BaseSettings):
     TIMEZONE: str = 'Asia/Shanghai'
     BROKER_URL: str = 'redis://localhost:6379/0'
     RESULT_BACKEND: str = 'redis://localhost:6379/1'
+
+    # 任务配置
+    MAX_TASKS: int = os.cpu_count()
+    WATCH_URL: str = 'redis://localhost:6379/2'
 
     class Config:
         env_file = '.env'
