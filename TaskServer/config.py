@@ -15,7 +15,7 @@ class Settings(BaseSettings):
     API_V1_STR: str = '/api/v1'
 
     # 服务配置
-    SERVER_HOST: str = "127.0.0.1"
+    SERVER_HOST: str = "0.0.0.0"
     SERVER_PORT: int = 8000
     DEBUG: bool = True
     RELOAD: bool = True

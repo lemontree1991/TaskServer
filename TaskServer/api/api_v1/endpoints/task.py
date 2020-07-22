@@ -14,6 +14,7 @@ from TaskServer import celery_app, states
 from TaskServer.config import settings
 from TaskServer.core.client import monitor
 from TaskServer.schemas.task import ControlTask
+from TaskServer.utils.id_generator import id_generator
 
 router = APIRouter()
 
@@ -40,7 +41,7 @@ def create_task(
         return response
 
     result = celery_app.send_task(
-        # task_id=str(int(time.time())),
+        task_id=str(id_generator.gen_id()),
         name='simulate-task',
         kwargs={
             'end_time': end_time,
@@ -82,6 +83,10 @@ def get_task_progress(task_id: str):
             'progress': 100,
             'result': result.result['current']
         }
+    else:
+        response['result'] = {
+            'state': result.status,
+        }
 
     return response
 
@@ -99,7 +104,7 @@ def get_task_result(task_id: str):
         response['errcode'] = 400
         response['msg'] = f'当前任务数在非成功状态'
         return response
-    response['result'] = result.result['current']
+    response['result'] = result.result['result']
     return response
 
 
