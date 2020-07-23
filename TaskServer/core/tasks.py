@@ -87,11 +87,9 @@ class BaseTask(celery.Task):
                 elif CommandCode(command) == CommandCode.PAUSE:
                     logger.info(f'{self.request.id}: 接受到*暂停*信息')
                     arithmetic.process.status = StatusCode.PAUSE
-                    self.update_state(state=StatusCode.PAUSE)
                 elif CommandCode(command) == CommandCode.RESUME:
                     arithmetic.process.status = StatusCode.PROGRESS
                     logger.info(f'{self.request.id}: 接受到*恢复*信息')
-                    self.update_state(state=StatusCode.PROGRESS)
                 else:
                     raise ValueError(f'无效的命令:{command}')
 
