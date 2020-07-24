@@ -105,10 +105,14 @@ def simulate(self, *, end_time, interval, data):
 
     path = Path(__file__).resolve(strict=True).parent.joinpath('schema_data.json')
     with open(path, encoding='utf-8') as f:
-        data = json.load(f)
-        data['sys_config']['simulate']['terminal'] = end_time
+        model_data = json.load(f)
+        model_data['sys_config']['simulate']['terminal'] = end_time
+        for module in model_data['modules']:
+            module_id = module['id']
+            if module_id in data:
+                module['params'] = data[module_id]
 
-    process_plus = ProcessPlus(config_path=path, data=data)
+    process_plus = ProcessPlus(config_path=path, data=model_data)
     process_plus.arithmetic.solve(self.monitor, self.update_progress)
     process_plus.arithmetic.save_result()
 
